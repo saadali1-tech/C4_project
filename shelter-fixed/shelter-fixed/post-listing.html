@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Your Listing - ConnectCare Ontario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="forum.html">Forum</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Organization Listing</p>
+        <h1 id="listingPageTitle">Post Your Organization</h1>
+        <p>Fill in the details below. Your listing will appear in the directory immediately.</p>
+      </div>
+    </section>
+
+    <div id="authGate" class="auth-gate hidden">
+      <p>You need to be signed in to post a listing.</p>
+      <button class="btn-primary" onclick="openAuthModal('signin')">Sign in</button>
+      <button class="btn-secondary" onclick="openAuthModal('signup')">Create account</button>
+    </div>
+
+    <form id="listingForm" class="listing-form" novalidate>
+
+      <!-- Basic Information -->
+      <div class="listing-section">
+        <h2>Basic Information</h2>
+
+        <div class="field-group">
+          <label for="orgName">Organization name <span class="required">*</span></label>
+          <input type="text" id="orgName" required />
+        </div>
+
+        <div class="field-group">
+          <label for="description">Description <span class="required">*</span></label>
+          <textarea id="description" rows="4" placeholder="Briefly describe what your organization does and who it serves." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="phone">Phone number <span class="required">*</span></label>
+            <input type="tel" id="phone" placeholder="(613) 000-0000" required />
+          </div>
+          <div class="field-group">
+            <label for="email">Contact email <span class="required">*</span></label>
+            <input type="email" id="email" placeholder="referrals@organization.ca" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="123 Main St, Ottawa, ON" />
+          </div>
+          <div class="field-group">
+            <label for="website">Website</label>
+            <input type="url" id="website" placeholder="https://yourorg.ca" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="city">City / Region <span class="required">*</span></label>
+            <select id="city" required>
+              <option value="">Select city</option>
+              <option value="ottawa">Ottawa</option>
+              <option value="toronto">Toronto</option>
+              <option value="hamilton">Hamilton</option>
+              <option value="london">London</option>
+              <option value="kingston">Kingston</option>
+              <option value="other">Other Ontario</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="contactName">Primary contact name <span class="required">*</span></label>
+            <input type="text" id="contactName" placeholder="e.g. Maya Robinson, Partnership Lead" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Services and Population -->
+      <div class="listing-section">
+        <h2>Services and Population</h2>
+
+        <div class="field-group">
+          <label>Services offered <span class="required">*</span></label>
+          <div class="checkbox-group" id="servicesGroup">
+            <label><input type="checkbox" name="services" value="shelter" /> Emergency shelter</label>
+            <label><input type="checkbox" name="services" value="housing" /> Transitional / long-term housing</label>
+            <label><input type="checkbox" name="services" value="food" /> Food and meals</label>
+            <label><input type="checkbox" name="services" value="healthcare" /> Healthcare / medical</label>
+            <label><input type="checkbox" name="services" value="mental_health" /> Mental health support</label>
+            <label><input type="checkbox" name="services" value="employment" /> Employment and training</label>
+            <label><input type="checkbox" name="services" value="legal" /> Legal aid</label>
+            <label><input type="checkbox" name="services" value="addiction" /> Addiction services</label>
+            <label><input type="checkbox" name="services" value="children" /> Children and family services</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label>Age groups served</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="ageGroups" value="youth" /> Youth (16–21)</label>
+              <label><input type="checkbox" name="ageGroups" value="adult" /> Adults (22–59)</label>
+              <label><input type="checkbox" name="ageGroups" value="senior" /> Seniors (60+)</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Gender served</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="genders" value="women" /> Women / Girls</label>
+              <label><input type="checkbox" name="genders" value="men" /> Men / Boys</label>
+              <label><input type="checkbox" name="genders" value="nonbinary" /> Non-binary / Gender diverse</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Special accommodations</label>
+          <div class="checkbox-group" id="specialGroup">
+            <label><input type="checkbox" name="special" value="disability" /> Accessibility / physical disability</label>
+            <label><input type="checkbox" name="special" value="lgbtq" /> LGBTQ+ affirming</label>
+            <label><input type="checkbox" name="special" value="women_staff" /> Women-only staff available</label>
+            <label><input type="checkbox" name="special" value="indigenous" /> Indigenous-specific services</label>
+            <label><input type="checkbox" name="special" value="language" /> Non-English language support</label>
+            <label><input type="checkbox" name="special" value="fleeing_violence" /> Supports people fleeing violence</label>
+            <label><input type="checkbox" name="special" value="pets" /> Pets welcome</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="populationServed">Population served <span class="hint">(one per line)</span></label>
+          <textarea id="populationServed" rows="3" placeholder="e.g. Youth 16-24&#10;2SLGBTQ+ youth&#10;Youth leaving care"></textarea>
+        </div>
+      </div>
+
+      <!-- Capacity and Urgency -->
+      <div class="listing-section">
+        <h2>Capacity and Urgency</h2>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="capacity">Current capacity</label>
+            <select id="capacity">
+              <option value="Available">Available</option>
+              <option value="Limited">Limited</option>
+              <option value="Full">Full</option>
+            </select>
+          </div>
+          <div class="field-group" style="justify-content:flex-end;padding-top:28px;">
+            <label class="inline-check">
+              <input type="checkbox" id="urgency" />
+              Accepts urgent same-day referrals
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Referral Information -->
+      <div class="listing-section">
+        <h2>Referral Information</h2>
+        <div class="field-group">
+          <label for="referralRequirements">Referral requirements <span class="hint">(one per line)</span></label>
+          <textarea id="referralRequirements" rows="4" placeholder="e.g. Client consent required&#10;Photo ID if available&#10;Warm handoff preferred for urgent shelter"></textarea>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="listing-section listing-section-additional">
+        <h2>Additional Information</h2>
+        <p class="section-hint">Share any extra details that would help other providers understand your services — e.g. number of beds, intake hours, waitlist status, languages spoken, accessibility features, notes on your intake process, or anything else relevant.</p>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="bedsTotal">Total beds / capacity</label>
+            <input type="number" id="bedsTotal" placeholder="e.g. 40" min="0" />
+          </div>
+          <div class="field-group">
+            <label for="bedsAvailable">Beds currently available</label>
+            <input type="number" id="bedsAvailable" placeholder="e.g. 12" min="0" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="intakeHours">Intake hours</label>
+            <input type="text" id="intakeHours" placeholder="e.g. Mon–Fri 9am–5pm, or 24/7" />
+          </div>
+          <div class="field-group">
+            <label for="waitlistStatus">Waitlist status</label>
+            <select id="waitlistStatus">
+              <option value="">— Not specified —</option>
+              <option value="No waitlist">No waitlist</option>
+              <option value="Short waitlist (under 2 weeks)">Short waitlist (under 2 weeks)</option>
+              <option value="Moderate waitlist (2–8 weeks)">Moderate waitlist (2–8 weeks)</option>
+              <option value="Long waitlist (8+ weeks)">Long waitlist (8+ weeks)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="languagesSpoken">Languages spoken by staff <span class="hint">(comma-separated)</span></label>
+          <input type="text" id="languagesSpoken" placeholder="e.g. English, French, Somali, Arabic" />
+        </div>
+
+        <div class="field-group">
+          <label for="additionalNotes">Other notes</label>
+          <textarea id="additionalNotes" rows="4" placeholder="Anything else you'd like other service providers to know — intake process, documentation requirements, partnership preferences, recent program changes, etc."></textarea>
+        </div>
+      </div>
+
+      <!-- Partnerships and Projects -->
+      <div class="listing-section">
+        <h2>Partnerships and Projects</h2>
+
+        <div class="field-group">
+          <label for="partnerships">Known partner organizations <span class="hint">(one per line)</span></label>
+          <textarea id="partnerships" rows="3" placeholder="e.g. Wabano Centre for Aboriginal Health&#10;Canadian Mental Health Association Ottawa"></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="currentProjects">Current projects or initiatives <span class="hint">(one per line)</span></label>
+          <textarea id="currentProjects" rows="3" placeholder="e.g. Youth diversion intake map&#10;Peer navigator training cohort"></textarea>
+        </div>
+
+        <div class="field-group">
+          <label>Collaboration needs</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="collaborationNeeds" value="housing" /> Housing placement</label>
+            <label><input type="checkbox" name="collaborationNeeds" value="mental_health" /> Mental health support</label>
+            <label><input type="checkbox" name="collaborationNeeds" value="employment" /> Employment pathways</label>
+            <label><input type="checkbox" name="collaborationNeeds" value="legal" /> Legal and benefits navigation</label>
+            <label><input type="checkbox" name="collaborationNeeds" value="healthcare" /> Healthcare access</label>
+            <label><input type="checkbox" name="collaborationNeeds" value="children" /> Children and family supports</label>
+            <label><input type="checkbox" name="collaborationNeeds" value="addiction" /> Addiction and harm reduction</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Funding Activity -->
+      <div class="listing-section">
+        <h2>Funding Activity</h2>
+
+        <div class="field-group">
+          <label for="grantsReceived">Grants received <span class="hint">(one per line — name, year, amount)</span></label>
+          <textarea id="grantsReceived" rows="3" placeholder="e.g. Youth Homelessness Prevention Fund, 2025, $180K"></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="grantsApplied">Grants currently applied for <span class="hint">(one per line)</span></label>
+          <textarea id="grantsApplied" rows="2" placeholder="e.g. Community Housing Innovation Stream — Submitted"></textarea>
+        </div>
+      </div>
+
+      <div id="formError" class="form-error hidden"></div>
+
+      <div class="listing-actions">
+        <button type="submit" class="btn-primary" id="saveBtn">Post Listing</button>
+        <a href="directory.html" class="btn-secondary">Cancel</a>
+        <button type="button" class="btn-danger" id="deleteBtn" style="display:none;" onclick="handleDeleteListing()">Remove Listing</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="portal-data.js"></script>
+  <script src="auth.js"></script>
+  <script src="listings.js"></script>
+  <script>
+    function lines(text) {
+      return (text || "").split("\n").map(s => s.trim()).filter(Boolean);
+    }
+    function checks(name) {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+    }
+    function setChecks(name, values = []) {
+      document.querySelectorAll(`input[name="${name}"]`).forEach(cb => {
+        cb.checked = values.includes(cb.value);
+      });
+    }
+
+    function loadExisting(data) {
+      const fields = ["orgName","description","phone","email","address","website","city","contactName",
+                      "populationServed","referralRequirements","partnerships","currentProjects",
+                      "grantsReceived","grantsApplied","intakeHours","languagesSpoken","additionalNotes"];
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.value = Array.isArray(data[id]) ? data[id].join("\n") : (data[id] || "");
+      });
+      ["bedsTotal","bedsAvailable"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && data[id] != null) el.value = data[id];
+      });
+      const wsEl = document.getElementById("waitlistStatus");
+      if (wsEl && data.waitlistStatus) wsEl.value = data.waitlistStatus;
+      setChecks("services", data.services || []);
+      setChecks("ageGroups", data.ageGroups || []);
+      setChecks("genders", data.genders || []);
+      setChecks("special", data.special || []);
+      setChecks("collaborationNeeds", data.collaborationNeeds || []);
+      if (data.capacity) document.getElementById("capacity").value = data.capacity;
+      document.getElementById("urgency").checked = !!data.urgency;
+    }
+
+    function handleDeleteListing() {
+      if (!confirm("Remove your listing from the directory?")) return;
+      const user = currentUser();
+      deleteListing(user.id);
+      window.location.href = "directory.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = currentUser();
+      const form = document.getElementById("listingForm");
+      const gate = document.getElementById("authGate");
+
+      if (!user) {
+        form.classList.add("hidden");
+        gate.classList.remove("hidden");
+        return;
+      }
+
+      // Pre-fill org name
+      document.getElementById("orgName").value = user.orgName;
+
+      // Load existing listing if editing
+      const existing = getMyListing(user.id);
+      if (existing) {
+        document.getElementById("listingPageTitle").textContent = "Edit Your Listing";
+        document.getElementById("saveBtn").textContent = "Save Changes";
+        document.getElementById("deleteBtn").style.display = "";
+        loadExisting(existing);
+      }
+
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const err = document.getElementById("formError");
+        const services = checks("services");
+
+        if (!document.getElementById("orgName").value.trim() ||
+            !document.getElementById("description").value.trim() ||
+            !document.getElementById("phone").value.trim() ||
+            !document.getElementById("email").value.trim() ||
+            !document.getElementById("city").value ||
+            !document.getElementById("contactName").value.trim() ||
+            services.length === 0) {
+          err.textContent = "Please fill in all required fields and select at least one service.";
+          err.classList.remove("hidden");
+          err.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        err.classList.add("hidden");
+
+        const data = {
+          orgName:              document.getElementById("orgName").value.trim(),
+          description:          document.getElementById("description").value.trim(),
+          phone:                document.getElementById("phone").value.trim(),
+          email:                document.getElementById("email").value.trim(),
+          address:              document.getElementById("address").value.trim(),
+          website:              document.getElementById("website").value.trim(),
+          city:                 document.getElementById("city").value,
+          contactName:          document.getElementById("contactName").value.trim(),
+          services,
+          ageGroups:            checks("ageGroups"),
+          genders:              checks("genders"),
+          special:              checks("special"),
+          collaborationNeeds:   checks("collaborationNeeds"),
+          capacity:             document.getElementById("capacity").value,
+          urgency:              document.getElementById("urgency").checked,
+          populationServed:     lines(document.getElementById("populationServed").value),
+          referralRequirements: lines(document.getElementById("referralRequirements").value),
+          partnerships:         lines(document.getElementById("partnerships").value),
+          currentProjects:      lines(document.getElementById("currentProjects").value),
+          grantsReceived:       lines(document.getElementById("grantsReceived").value),
+          grantsApplied:        lines(document.getElementById("grantsApplied").value),
+          // Additional info
+          bedsTotal:            document.getElementById("bedsTotal").value ? Number(document.getElementById("bedsTotal").value) : null,
+          bedsAvailable:        document.getElementById("bedsAvailable").value ? Number(document.getElementById("bedsAvailable").value) : null,
+          intakeHours:          document.getElementById("intakeHours").value.trim(),
+          waitlistStatus:       document.getElementById("waitlistStatus").value,
+          languagesSpoken:      document.getElementById("languagesSpoken").value.trim(),
+          additionalNotes:      document.getElementById("additionalNotes").value.trim(),
+        };
+
+        upsertListing(user.id, data);
+
+        const btn = document.getElementById("saveBtn");
+        btn.textContent = "Posted!";
+        btn.disabled = true;
+        btn.style.background = "#166534";
+        setTimeout(() => { window.location.href = "directory.html"; }, 700);
+      });
+    });
+  </script>
+</body>
+</html>

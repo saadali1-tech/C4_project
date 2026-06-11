@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources and Funding - ConnectCare Ontario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="forum.html">Forum</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Resource and Funding Library</p>
+        <h1>Find Funding, Reporting Requirements, Guides, and Templates</h1>
+        <p>Filter demo resources by type and focus area so teams can quickly understand eligibility, deadlines, and reporting expectations.</p>
+      </div>
+    </section>
+
+    <div class="dir-search">
+      <input type="text" id="resourceSearch" placeholder="Search funding, guides, tags, or reporting requirements..." />
+      <select id="resourceType">
+        <option value="">All types</option>
+        <option value="Funding">Funding</option>
+        <option value="Guide">Guides</option>
+        <option value="Template">Templates</option>
+      </select>
+      <select id="resourceFocus">
+        <option value="">All focus areas</option>
+        <option value="Housing">Housing</option>
+        <option value="Operations">Operations</option>
+        <option value="Employment">Employment</option>
+        <option value="Partnerships">Partnerships</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Funding">Funding</option>
+      </select>
+    </div>
+
+    <div class="section-heading">
+      <h2>Library</h2>
+      <span id="resourceCount"></span>
+    </div>
+
+    <div id="resourceContainer" class="resource-grid"></div>
+  </main>
+
+  <script src="portal-data.js"></script>
+  <script src="resources.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

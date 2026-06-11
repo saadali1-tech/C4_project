@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discussion Forum - ConnectCare Ontario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="forum.html" class="active">Forum</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Discussion Forum</p>
+        <h1>Coordinate Around Sector Trends and Service Gaps</h1>
+        <p>Browse demo discussions or add a local prototype post. Posts stay in this browser only.</p>
+      </div>
+    </section>
+
+    <div class="forum-layout">
+      <section>
+        <div class="forum-tools">
+          <input type="text" id="forumSearch" placeholder="Search discussions..." />
+          <select id="forumCategory">
+            <option value="">All categories</option>
+            <option value="Operations">Operations</option>
+            <option value="Referral Practice">Referral Practice</option>
+            <option value="Programs">Programs</option>
+            <option value="Funding">Funding</option>
+          </select>
+        </div>
+        <div class="section-heading">
+          <h2>Recent Discussions</h2>
+          <span id="threadCount"></span>
+        </div>
+        <div id="forumThreads"></div>
+      </section>
+
+      <aside class="form-panel">
+        <h2>Start a Discussion</h2>
+        <form id="newThreadForm">
+          <div class="field-group">
+            <label for="threadTitle">Topic</label>
+            <input type="text" id="threadTitle" required placeholder="What should others know?" />
+          </div>
+          <div class="field-group">
+            <label for="threadCategory">Category</label>
+            <select id="threadCategory">
+              <option>Operations</option>
+              <option>Referral Practice</option>
+              <option>Programs</option>
+              <option>Funding</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="threadRegion">Region</label>
+            <input type="text" id="threadRegion" placeholder="Ontario-wide, Ottawa, Toronto..." />
+          </div>
+          <div class="field-group">
+            <label for="threadSummary">Summary</label>
+            <textarea id="threadSummary" rows="5" required placeholder="Add context, trends, or a question for the network."></textarea>
+          </div>
+          <button type="submit">Post Demo Thread</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <script src="portal-data.js"></script>
+  <script src="forum.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

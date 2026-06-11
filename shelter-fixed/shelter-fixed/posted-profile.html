@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organization Profile - ConnectCare Ontario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="directory.html" class="active">Directory</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="forum.html">Forum</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="profileMount">
+    <div class="empty-state"><p>Loading profile…</p></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="portal-data.js"></script>
+  <script src="auth.js"></script>
+  <script src="listings.js"></script>
+  <script>
+    const serviceNames = {
+      shelter:"Emergency shelter", housing:"Housing", food:"Food and meals",
+      healthcare:"Healthcare", mental_health:"Mental health",
+      employment:"Employment and training", legal:"Legal aid",
+      addiction:"Addiction services", children:"Children and family services"
+    };
+    const specialNames = {
+      disability:"Accessibility needs", lgbtq:"LGBTQ+ affirming",
+      women_staff:"Women-only staff", indigenous:"Indigenous-specific",
+      language:"Language support", fleeing_violence:"Fleeing violence", pets:"Pets welcome"
+    };
+    const cityMap = { ottawa:"Ottawa", toronto:"Toronto", hamilton:"Hamilton", london:"London", kingston:"Kingston", other:"Ontario" };
+    const capClass = c => ({ Available:"cap-available", Limited:"cap-limited", Full:"cap-full" }[c] || "");
+
+    function esc(s) {
+      return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function chips(arr, mapper) {
+      if (!arr || !arr.length) return "";
+      return `<div class="tags">${arr.map(v => `<span class="tag">${esc(mapper ? mapper(v) : v)}</span>`).join("")}</div>`;
+    }
+    function list(arr) {
+      if (!arr || !arr.length) return "<p>—</p>";
+      return `<ul class="detail-list">${arr.map(i => `<li>${esc(i)}</li>`).join("")}</ul>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const uid = params.get("uid");
+      const mount = document.getElementById("profileMount");
+      const org = getPostedListings().find(l => l.userId === uid);
+
+      if (!org) {
+        mount.innerHTML = `<section class="intro"><div><h1>Profile not found</h1><p><a href="directory.html">Return to the directory</a></p></div></section>`;
+        return;
+      }
+
+      document.title = `${org.orgName} – ConnectCare Ontario`;
+      const city = cityMap[org.city] || org.city || "Ontario";
+
+      const bedRow = (org.bedsAvailable != null || org.bedsTotal != null)
+        ? `<tr><th>Beds available</th><td>${org.bedsAvailable != null ? org.bedsAvailable : "—"}${org.bedsTotal != null ? " of " + org.bedsTotal : ""}</td></tr>` : "";
+      const waitRow = org.waitlistStatus ? `<tr><th>Waitlist</th><td>${esc(org.waitlistStatus)}</td></tr>` : "";
+      const intakeRow = org.intakeHours ? `<tr><th>Intake hours</th><td>${esc(org.intakeHours)}</td></tr>` : "";
+      const langRow = org.languagesSpoken ? `<tr><th>Languages</th><td>${esc(org.languagesSpoken)}</td></tr>` : "";
+      const notesRow = org.additionalNotes ? `<tr><th>Notes</th><td style="white-space:pre-line">${esc(org.additionalNotes)}</td></tr>` : "";
+      const hasExtra = bedRow || waitRow || intakeRow || langRow || notesRow;
+
+      mount.innerHTML = `
+        <section class="profile-hero">
+          <div>
+            <a href="directory.html" class="back-link">← Back to directory</a>
+            <p class="eyebrow">Organization Profile</p>
+            <h1>${esc(org.orgName)}</h1>
+            <p>${esc(org.description)}</p>
+            <div class="tags">
+              <span class="capacity ${capClass(org.capacity)}">${esc(org.capacity)}</span>
+              <span class="tag">${esc(city)}</span>
+              ${org.urgency ? '<span class="tag urgent-tag">Urgent referrals</span>' : ""}
+              <span class="tag" style="background:#e0f2fe;color:#0369a1;font-weight:600;">Community posted</span>
+            </div>
+          </div>
+          <aside class="profile-contact">
+            <h2>Contact</h2>
+            ${org.contactName ? `<p><strong>${esc(org.contactName)}</strong></p>` : ""}
+            ${org.phone ? `<p><a href="tel:${esc(org.phone)}">${esc(org.phone)}</a></p>` : ""}
+            ${org.email ? `<p><a href="mailto:${esc(org.email)}">${esc(org.email)}</a></p>` : ""}
+            ${org.address ? `<p>${esc(org.address)}</p>` : ""}
+            ${org.website && org.website !== "#" ? `<p><a href="${esc(org.website)}" target="_blank" rel="noopener">${esc(org.website)}</a></p>` : ""}
+          </aside>
+        </section>
+
+        <div class="profile-body">
+          <section class="profile-section">
+            <h2>Services</h2>
+            ${chips(org.services, v => serviceNames[v] || v)}
+          </section>
+
+          <section class="profile-section">
+            <h2>Population Served</h2>
+            ${chips(org.ageGroups, v => ({youth:"Youth (16–21)", adult:"Adults (22–59)", senior:"Seniors (60+)"}[v] || v))}
+            ${chips(org.genders, v => ({women:"Women / Girls", men:"Men / Boys", nonbinary:"Non-binary / Gender diverse"}[v] || v))}
+            ${chips(org.special, v => specialNames[v] || v)}
+            ${list(org.populationServed)}
+          </section>
+
+          <section class="profile-section">
+            <h2>Referral Requirements</h2>
+            ${list(org.referralRequirements)}
+          </section>
+
+          ${hasExtra ? `
+          <section class="profile-section">
+            <h2>Additional Information</h2>
+            <table class="detail-table">
+              <tbody>
+                ${bedRow}${waitRow}${intakeRow}${langRow}${notesRow}
+              </tbody>
+            </table>
+          </section>` : ""}
+
+          ${(org.partnerships && org.partnerships.length) || (org.currentProjects && org.currentProjects.length) ? `
+          <section class="profile-section">
+            <h2>Partnerships and Projects</h2>
+            ${org.partnerships && org.partnerships.length ? `<h3>Partners</h3>${list(org.partnerships)}` : ""}
+            ${org.currentProjects && org.currentProjects.length ? `<h3>Current projects</h3>${list(org.currentProjects)}` : ""}
+          </section>` : ""}
+
+          ${(org.grantsReceived && org.grantsReceived.length) || (org.grantsApplied && org.grantsApplied.length) ? `
+          <section class="profile-section">
+            <h2>Funding Activity</h2>
+            ${org.grantsReceived && org.grantsReceived.length ? `<h3>Grants received</h3>${list(org.grantsReceived)}` : ""}
+            ${org.grantsApplied && org.grantsApplied.length ? `<h3>Grants applied for</h3>${list(org.grantsApplied)}` : ""}
+          </section>` : ""}
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

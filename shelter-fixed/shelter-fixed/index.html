@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConnectCare Ontario - Service Provider Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="forum.html">Forum</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Service provider network</p>
+        <h1>ConnectCare Ontario</h1>
+        <p>A coordination platform for social service providers across Ontario. Search the directory, find partnership opportunities, and post your organization's listing.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+          <a href="directory.html" class="btn-primary" style="text-decoration:none;padding:10px 22px;border-radius:6px;background:var(--blue);color:#fff;font-weight:600;">Browse Directory</a>
+          <a href="post-listing.html" class="btn-secondary" style="text-decoration:none;padding:10px 22px;border-radius:6px;border:1.5px solid var(--line);color:var(--ink);font-weight:600;">Post Your Organization</a>
+        </div>
+      </div>
+      <div class="intro-stat">
+        <strong id="orgCount">—</strong>
+        <span>organizations listed</span>
+      </div>
+    </section>
+
+    <section class="feature-strip" aria-label="Platform features">
+      <a class="feature-card" href="directory.html">
+        <span>01</span>
+        <strong>Service Provider Directory</strong>
+        <p>Search organizations by service area, population, and location.</p>
+      </a>
+      <a class="feature-card" href="directory.html">
+        <span>02</span>
+        <strong>Organization Profiles</strong>
+        <p>View services, contacts, referral requirements, grants, and projects.</p>
+      </a>
+      <a class="feature-card" href="partnerships.html">
+        <span>03</span>
+        <strong>Partnership Matching</strong>
+        <p>Find collaboration opportunities across the service network.</p>
+      </a>
+      <a class="feature-card" href="forum.html">
+        <span>04</span>
+        <strong>Discussion Forum</strong>
+        <p>Share sector concerns, emerging trends, and local coordination needs.</p>
+      </a>
+      <a class="feature-card" href="resources.html">
+        <span>05</span>
+        <strong>Resource and Funding Library</strong>
+        <p>Browse funding information, reporting requirements, and guides.</p>
+      </a>
+      <a class="feature-card" href="post-listing.html">
+        <span>06</span>
+        <strong>Post Your Listing</strong>
+        <p>Register your organization and appear in the directory for other providers to find.</p>
+      </a>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="listings.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("orgCount").textContent = getAllListings().length;
+    });
+  </script>
+</body>
+</html>
