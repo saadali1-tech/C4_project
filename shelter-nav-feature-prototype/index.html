@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConnectCare Ontario - Service Provider Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html" class="active">Find Services</a>
+        <a href="directory.html">Directory</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="forum.html">Forum</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Service provider navigation prototype</p>
+        <h1>Find Support Services for Your Client</h1>
+        <p>Search by service area, population served, location, and urgent need. This prototype uses demo data only.</p>
+      </div>
+      <div class="intro-stat">
+        <strong>20</strong>
+        <span>demo organizations</span>
+      </div>
+    </section>
+
+    <section class="feature-strip" aria-label="Platform features">
+      <a class="feature-card" href="directory.html">
+        <span>01</span>
+        <strong>Service Provider Directory</strong>
+        <p>Search organizations by service area, population, and location.</p>
+      </a>
+      <a class="feature-card" href="directory.html">
+        <span>02</span>
+        <strong>Organization Profiles</strong>
+        <p>View services, contacts, referral requirements, grants, and projects.</p>
+      </a>
+      <a class="feature-card" href="partnerships.html">
+        <span>03</span>
+        <strong>Partnership Matching</strong>
+        <p>Find collaboration opportunities across the service network.</p>
+      </a>
+      <a class="feature-card" href="forum.html">
+        <span>04</span>
+        <strong>Discussion Forum</strong>
+        <p>Share sector concerns, emerging trends, and local coordination needs.</p>
+      </a>
+      <a class="feature-card" href="resources.html">
+        <span>05</span>
+        <strong>Resource and Funding Library</strong>
+        <p>Browse funding information, reporting requirements, and guides.</p>
+      </a>
+    </section>
+
+    <div class="layout">
+      <aside class="form-panel">
+        <h2>Client Needs Assessment</h2>
+        <form id="intakeForm">
+
+          <div class="field-group">
+            <label for="age">Age Range</label>
+            <select id="age">
+              <option value="">Any age</option>
+              <option value="youth">Youth (16-21)</option>
+              <option value="adult">Adult (22-59)</option>
+              <option value="senior">Senior (60+)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="">Any / Prefer not to say</option>
+              <option value="women">Women / Girls</option>
+              <option value="men">Men / Boys</option>
+              <option value="nonbinary">Non-binary / Gender diverse</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label>Services Needed <span class="hint">(select all that apply)</span></label>
+            <div class="checkbox-group" id="services">
+              <label><input type="checkbox" value="shelter" /> Emergency shelter</label>
+              <label><input type="checkbox" value="housing" /> Transitional/long-term housing</label>
+              <label><input type="checkbox" value="food" /> Food and meals</label>
+              <label><input type="checkbox" value="healthcare" /> Healthcare / medical</label>
+              <label><input type="checkbox" value="mental_health" /> Mental health support</label>
+              <label><input type="checkbox" value="employment" /> Employment / training</label>
+              <label><input type="checkbox" value="legal" /> Legal aid</label>
+              <label><input type="checkbox" value="addiction" /> Addiction services</label>
+              <label><input type="checkbox" value="children" /> Services for children</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Special Considerations</label>
+            <div class="checkbox-group" id="special">
+              <label><input type="checkbox" value="disability" /> Physical disability / accessibility needs</label>
+              <label><input type="checkbox" value="lgbtq" /> LGBTQ+ affirming required</label>
+              <label><input type="checkbox" value="women_staff" /> Women-only staff preferred</label>
+              <label><input type="checkbox" value="indigenous" /> Indigenous-specific services</label>
+              <label><input type="checkbox" value="language" /> Non-English language support needed</label>
+              <label><input type="checkbox" value="fleeing_violence" /> Fleeing domestic violence</label>
+              <label><input type="checkbox" value="pets" /> Has a pet</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="city">City / Region</label>
+            <select id="city">
+              <option value="">All of Ontario</option>
+              <option value="ottawa">Ottawa</option>
+              <option value="toronto">Toronto</option>
+              <option value="hamilton">Hamilton</option>
+              <option value="london">London</option>
+              <option value="kingston">Kingston</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="urgency">Urgency</label>
+            <select id="urgency">
+              <option value="">Not urgent</option>
+              <option value="urgent">Urgent (needs help today)</option>
+            </select>
+          </div>
+
+          <button type="button" id="searchBtn">Find Matching Services</button>
+          <button type="button" id="resetBtn" class="secondary">Clear</button>
+
+        </form>
+      </aside>
+
+      <section class="results-panel">
+        <div id="resultsHeader" class="results-header hidden">
+          <span id="matchCount"></span>
+          <input type="text" id="keyword" placeholder="Filter results by keyword..." />
+        </div>
+
+        <div id="resultsContainer">
+          <div class="empty-state">
+            <p>Fill in the form and click <strong>Find Matching Services</strong> to see results.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="portal-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

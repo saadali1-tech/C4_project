@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partnership Matching - ConnectCare Ontario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">ConnectCare Ontario</div>
+      <nav>
+        <a href="index.html">Find Services</a>
+        <a href="directory.html">Directory</a>
+        <a href="partnerships.html" class="active">Partnerships</a>
+        <a href="forum.html">Forum</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Partnership Matching</p>
+        <h1>Discover Collaboration Opportunities</h1>
+        <p>Select an organization and a goal to receive partner suggestions based on complementary services, region, populations served, and current collaboration needs.</p>
+      </div>
+    </section>
+
+    <section class="matching-console">
+      <div class="field-group">
+        <label for="myOrg">My organization</label>
+        <select id="myOrg"></select>
+      </div>
+      <div class="field-group">
+        <label for="matchGoal">Collaboration goal</label>
+        <select id="matchGoal"></select>
+      </div>
+      <button type="button" id="runMatchBtn">Find Partners</button>
+    </section>
+
+    <div class="portal-grid">
+      <section>
+        <div class="section-heading">
+          <h2>Recommended Partners</h2>
+          <span id="partnerCount"></span>
+        </div>
+        <div id="partnerResults"></div>
+      </section>
+
+      <aside class="side-panel">
+        <h2>Open Collaboration Board</h2>
+        <p class="muted">Current projects where organizations may need shared referrals, subject-matter expertise, or joint funding partners.</p>
+        <div id="opportunityBoard"></div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="portal-data.js"></script>
+  <script src="partnerships.js"></script>
+</body>
+</html>
