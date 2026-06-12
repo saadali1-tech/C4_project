@@ -1,79 +1,157 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Service Provider Directory - ConnectCare Ontario</title>
+
   <link rel="stylesheet" href="style.css" />
+
 </head>
+
 <body>
 
+
+
   <header>
+
     <div class="header-inner">
+
       <div class="logo">ConnectCare Ontario</div>
+
       <nav>
+
         <a href="index.html">Home</a>
+
         <a href="directory.html" class="active">Directory</a>
+
         <a href="partnerships.html">Partnerships</a>
+
         <a href="forum.html">Forum</a>
+
         <a href="resources.html">Resources</a>
+
         <a href="about.html">About</a>
+
       </nav>
+
     </div>
+
   </header>
 
+
+
   <main>
+
     <section class="intro">
+
       <div>
+
         <p class="eyebrow">Service Provider Directory</p>
+
         <h1>Find Organizations by Service, Population, and Location</h1>
+
         <p>Browse registered providers and open complete organization profiles with contacts, referral requirements, projects, and funding activity.</p>
+
       </div>
+
       <div class="intro-stat">
+
         <strong id="directoryTotal">—</strong>
+
         <span>providers listed</span>
+
       </div>
+
     </section>
 
+
+
     <div class="dir-search">
+
       <input type="text" id="dirSearch" placeholder="Search by name, city, service, population, or tag..." />
+
       <select id="dirCityFilter">
+
         <option value="">All cities</option>
+
         <option value="ottawa">Ottawa</option>
+
         <option value="toronto">Toronto</option>
+
         <option value="hamilton">Hamilton</option>
+
         <option value="london">London</option>
+
         <option value="kingston">Kingston</option>
+
       </select>
+
       <select id="dirServiceFilter">
+
         <option value="">All services</option>
+
         <option value="shelter">Emergency shelter</option>
+
         <option value="housing">Housing</option>
+
         <option value="food">Food and meals</option>
+
         <option value="healthcare">Healthcare</option>
+
         <option value="mental_health">Mental health</option>
+
         <option value="employment">Employment</option>
+
         <option value="legal">Legal aid</option>
+
         <option value="addiction">Addiction services</option>
+
         <option value="children">Children and family services</option>
+
       </select>
+
     </div>
+
+
 
     <div class="section-heading">
+
       <h2>Organizations</h2>
+
       <span id="directoryCount"></span>
+
     </div>
+
+
 
     <div id="directoryContainer" class="directory-grid"></div>
+
       <div class="post-cta">
+
       <p>Is your organization missing? <a href="post-listing.html">Post your listing</a> to appear in the directory.</p>
+
     </div>
+
   </main>
 
+
+
   <script src="data.js"></script>
+
   <script src="portal-data.js"></script>
+
   <script src="auth.js"></script>
+
   <script src="listings.js"></script>
+
   <script src="directory.js"></script>
+
 </body>
+
 </html>
