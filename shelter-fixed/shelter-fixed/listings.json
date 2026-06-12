@@ -1,0 +1,447 @@
+
+[
+
+  {
+
+    "_seed": true,
+
+    "_id": "org001",
+
+    "orgName": "Safe Haven Shelter",
+
+    "description": "Provides emergency shelter for individuals and families in crisis.",
+
+    "city": "ottawa",
+
+    "address": "123 Main St",
+
+    "services": ["shelter", "food", "mental_health"],
+
+    "populationServed": ["Adults", "Families"],
+
+    "referralRequirements": ["Call ahead"],
+
+    "bedsAvailable": 12,
+
+    "bedsTotal": 20,
+
+    "intakeHours": "9am - 5pm",
+
+    "website": "https://safehaven.org",
+
+    "capacity": "Available",
+
+    "phone": "613-555-0101"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org002",
+
+    "orgName": "Toronto Food Bank",
+
+    "description": "Food assistance and support programs for low-income residents.",
+
+    "city": "toronto",
+
+    "address": "45 Queen St",
+
+    "services": ["food", "housing"],
+
+    "populationServed": ["Adults", "Children"],
+
+    "referralRequirements": [],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "Mon-Fri 10am-4pm",
+
+    "website": "https://torontofoodbank.ca",
+
+    "capacity": "Limited",
+
+    "phone": "416-555-0202"
+
+  },
+
+  {
+
+    "_seed": false,
+
+    "userId": "user123",
+
+    "name": "Hamilton Employment Centre",
+
+    "description": "Employment training and job placement support.",
+
+    "city": "hamilton",
+
+    "address": "77 King St",
+
+    "services": ["employment"],
+
+    "populationServed": ["Adults"],
+
+    "referralRequirements": ["Submit application online"],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "8am - 6pm",
+
+    "website": "#",
+
+    "capacity": "Full",
+
+    "phone": "905-555-0303"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org004",
+
+    "orgName": "Kingston Mental Health Services",
+
+    "description": "Counseling and mental health support programs.",
+
+    "city": "kingston",
+
+    "address": "12 Wellington St",
+
+    "services": ["mental_health", "healthcare"],
+
+    "populationServed": ["Adults", "Youth"],
+
+    "referralRequirements": ["Referral from primary care provider"],
+
+    "bedsAvailable": 5,
+
+    "bedsTotal": 10,
+
+    "intakeHours": "9am - 5pm",
+
+    "website": "https://kingstonmh.org",
+
+    "capacity": "Available",
+
+    "phone": "613-555-0404"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org005",
+
+    "orgName": "Children & Family Support London",
+
+    "description": "Programs and services supporting children and families.",
+
+    "city": "london",
+
+    "address": "88 Elm St",
+
+    "services": ["children", "addiction"],
+
+    "populationServed": ["Children", "Families"],
+
+    "referralRequirements": [],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "9am - 5pm",
+
+    "website": "https://cfslondon.org",
+
+    "capacity": "Limited",
+
+    "phone": "519-555-0505"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org006",
+
+    "orgName": "Ottawa Housing Solutions",
+
+    "description": "Affordable housing support for low-income residents.",
+
+    "city": "ottawa",
+
+    "address": "50 Bank St",
+
+    "services": ["housing", "shelter"],
+
+    "populationServed": ["Adults", "Families", "Youth"],
+
+    "referralRequirements": ["Online application required"],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "9am - 5pm",
+
+    "website": "https://ottawahousing.org",
+
+    "capacity": "Full",
+
+    "phone": "613-555-0606"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org007",
+
+    "orgName": "Toronto Mental Health Support",
+
+    "description": "Mental health services and counseling.",
+
+    "city": "toronto",
+
+    "address": "23 King St",
+
+    "services": ["mental_health"],
+
+    "populationServed": ["Adults", "Youth"],
+
+    "referralRequirements": ["Referral recommended"],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "10am - 6pm",
+
+    "website": "https://torontomentalhealth.org",
+
+    "capacity": "Available",
+
+    "phone": "416-555-0707"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org008",
+
+    "orgName": "London Food Services",
+
+    "description": "Community meals and food distribution.",
+
+    "city": "london",
+
+    "address": "14 Pine St",
+
+    "services": ["food"],
+
+    "populationServed": ["Adults", "Children"],
+
+    "referralRequirements": [],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "9am - 3pm",
+
+    "website": "https://londonfoodservices.org",
+
+    "capacity": "Limited",
+
+    "phone": "519-555-0808"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org009",
+
+    "orgName": "Hamilton Addiction Recovery",
+
+    "description": "Addiction support and counseling.",
+
+    "city": "hamilton",
+
+    "address": "66 Lakeview Rd",
+
+    "services": ["addiction", "mental_health"],
+
+    "populationServed": ["Adults"],
+
+    "referralRequirements": ["Referral required"],
+
+    "bedsAvailable": 8,
+
+    "bedsTotal": 12,
+
+    "intakeHours": "9am - 5pm",
+
+    "website": "https://hamiltonaddiction.org",
+
+    "capacity": "Limited",
+
+    "phone": "905-555-0909"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org010",
+
+    "orgName": "Kingston Legal Aid Centre",
+
+    "description": "Legal support and advocacy for vulnerable populations.",
+
+    "city": "kingston",
+
+    "address": "99 Front St",
+
+    "services": ["legal"],
+
+    "populationServed": ["Adults", "Families"],
+
+    "referralRequirements": ["Walk-in accepted"],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "Mon-Fri 9am-5pm",
+
+    "website": "https://kingstonlegalaid.org",
+
+    "capacity": "Available",
+
+    "phone": "613-555-1010"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org011",
+
+    "orgName": "Ottawa Children’s Support",
+
+    "description": "Programs supporting children and families.",
+
+    "city": "ottawa",
+
+    "address": "15 River Rd",
+
+    "services": ["children"],
+
+    "populationServed": ["Children", "Families"],
+
+    "referralRequirements": [],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "9am - 5pm",
+
+    "website": "https://ottawachildsupport.org",
+
+    "capacity": "Full",
+
+    "phone": "613-555-1111"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org012",
+
+    "orgName": "Toronto Shelter Network",
+
+    "description": "Emergency shelter and housing support.",
+
+    "city": "toronto",
+
+    "address": "200 Front St",
+
+    "services": ["shelter", "housing"],
+
+    "populationServed": ["Adults", "Families", "Youth"],
+
+    "referralRequirements": ["Call ahead"],
+
+    "bedsAvailable": 20,
+
+    "bedsTotal": 30,
+
+    "intakeHours": "24/7",
+
+    "website": "https://torontoshelter.org",
+
+    "capacity": "Available",
+
+    "phone": "416-555-1212"
+
+  },
+
+  {
+
+    "_seed": true,
+
+    "_id": "org013",
+
+    "orgName": "Hamilton Food Assistance",
+
+    "description": "Food distribution and support for low-income families.",
+
+    "city": "hamilton",
+
+    "address": "55 King St",
+
+    "services": ["food"],
+
+    "populationServed": ["Adults", "Children"],
+
+    "referralRequirements": [],
+
+    "bedsAvailable": null,
+
+    "bedsTotal": null,
+
+    "intakeHours": "9am - 4pm",
+
+    "website": "https://hamiltonfood.org",
+
+    "capacity": "Limited",
+
+    "phone": "905-555-1313"
+
+  }
+
+]
+
